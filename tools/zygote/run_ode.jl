@@ -5,10 +5,8 @@ import GradBench
 
 struct GradientODE <: GradBench.ODE.AbstractODE end
 function (::GradientODE)(x, s)
-    z, = Zygote.gradient(
-        x -> GradBench.ODE.Pure.primal(x, s)[end],
-        x
-    )
+    z, = Zygote.gradient(x -> GradBench.ODE.Pure.primal(x, s)[end],
+                         x)
     return z
 end
 

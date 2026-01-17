@@ -10,12 +10,10 @@ function (::GradientDet)(A, ell)
     return reshape(z', ell * ell)
 end
 
-GradBench.register!(
-    "det", Dict(
-        "primal" => GradBench.Det.Impure.PrimalDet(),
-        "gradient" => GradientDet()
-    )
-)
+GradBench.register!("det", Dict(
+    "primal" => GradBench.Det.Impure.PrimalDet(),
+    "gradient" => GradientDet()
+))
 
 
 end

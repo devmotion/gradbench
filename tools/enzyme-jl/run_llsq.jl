@@ -17,11 +17,9 @@ function (::GradientLLSQ)(input)
     return dx
 end
 
-GradBench.register!(
-    "llsq", Dict(
-        "primal" => GradBench.LLSQ.PrimalLLSQ(),
-        "gradient" => GradientLLSQ()
-    )
-)
+GradBench.register!("llsq", Dict(
+    "primal" => GradBench.LLSQ.PrimalLLSQ(),
+    "gradient" => GradientLLSQ()
+))
 
 end
